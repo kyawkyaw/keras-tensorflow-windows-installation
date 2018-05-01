@@ -1,7 +1,7 @@
 # Keras-TensorFlow-GPU-Windows-Installation
-10 easy steps on the installation of TensorFlow-GPU and Keras in Windows
+Steps on the installation of TensorFlow-GPU and Keras in Windows
 
-### Step 1: Install Anaconda (Python 3.6 version) <a href="https://www.continuum.io/downloads" target="_blank">Download</a>
+### Step 1: Install Anaconda (Python 3.6.5 version) <a href="https://www.continuum.io/downloads" target="_blank">Download</a>
 <p align="center"><img width=70% src="https://github.com/antoniosehk/keras-tensorflow-windows-installation/blob/master/anaconda_windows_installation.png"></p>
 
 ### Step 2: Update Anaconda
@@ -11,61 +11,56 @@ conda update conda
 conda update --all
 ```
 
-### Step 3: Install CUDA Tookit 8.0 <a href="https://developer.nvidia.com/cuda-downloads" target="_blank">Download</a>
+### Step 3: Install CUDA Tookit 9.0 <a href="https://developer.nvidia.com/cuda-downloads" target="_blank">Download</a>
 Choose your version depending on your Operating System
 
-<p align="center"><img width=70% src="https://github.com/antoniosehk/keras-tensorflow-windows-installation/blob/master/cuda8_windows7_local_installation.png"></p>
+```Tested version
+cuda_9.0.176_win10.exe
+```
+Environmental variables
+Ensure after installing CUDA toolkit, the CUDA_HOME is set in the environmental variables. 
+If not then you need to add it manually..
+```
+CUDA_HOME=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0
+CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0
+CUDA_PATH_V9_0=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0
+```
+
 
 ### Step 4: Download cuDNN <a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank">Download</a>
 Choose your version depending on your Operating System.
 Membership registration is required.
+```cudnn-9.0-windows10-x64-v7.1.zip```
+Copy the following files into the CUDA Toolkit directory.
+Copy <installpath>\cuda\bin\cudnn64_7.dll to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin.
+Copy <installpath>\cuda\ include\cudnn.h to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include.
+Copy <installpath>\cuda\lib\x64\cudnn.lib to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64.
 
-<p align="center"><img width=70% src="https://github.com/antoniosehk/keras-tensorflow-windows-installation/blob/master/cuDNN_windows_download.png"></p>
-
-Put your unzipped folder in C drive as follows: 
-```Command Prompt
-C:\cudnn-8.0-windows10-x64-v5.1
-```
-### Step 5: Add cuDNN into Environment PATH <a href="https://kb.wisc.edu/cae/page.php?id=24500" target="_blank">Tutorial</a>
-
-Add the following path in your Environment.
-Subjected to changes in your installation path.
-```Command Prompt
-C:\cudnn-8.0-windows10-x64-v5.1\cuda\bin
-```
-
-Turn off all the prompts. 
-Open a new Anaconda Prompt to type the following command(s)
-```Command Prompt
-echo %PATH%
-```
-You shall see that the new Environment PATH is there.
-
-### Step 6: Create an Anaconda environment with Python=3.5
+### Step 5: Create an Anaconda environment with Python=3.6.5
 Open Anaconda Prompt to type the following command(s)
 ```Command Prompt
-conda create -n tensorflow python=3.5 numpy scipy matplotlib spyder
+conda create -n tensorflowgpu python=3.6.5 numpy scipy matplotlib spyder
 ```
 
-### Step 7: Activate the environment
+### Step 6: Activate the environment
 Open Anaconda Prompt to type the following command(s)
 ```Command Prompt
-activate tensorflow
+activate tensorflowgpu
 ```
 
-### Step 8: Install TensorFlow-GPU-1.0.1
+### Step 7: Install Nightly build TensorFlow-GPU [1.8.0.dev20180329]
 Open Anaconda Prompt to type the following command(s)
 ```Command Prompt
-pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/windows/gpu/tensorflow_gpu-1.0.1-cp35-cp35m-win_amd64.whl
+pip install tf-nightly-gpu==1.8.0.dev20180329
 ```
 
-### Step 9: Install Keras
+### Step 8: Install Keras
 Open Anaconda Prompt to type the following command(s)
 ```Command Prompt
 pip install keras
 ```
 
-### Step 10: Testing
+### Step 9: Testing
 Let's try running <a href="https://github.com/antoniosehk/keras-tensorflow-windows-installation/blob/master/examples/mnist_mlp.py">mnist_mlp.py</a> in your prompt.
 
 Open Anaconda Prompt to type the following command(s)
