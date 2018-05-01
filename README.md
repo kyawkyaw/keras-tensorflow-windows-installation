@@ -30,11 +30,14 @@ CUDA_PATH_V9_0=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0
 ### Step 4: Download cuDNN <a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank">Download</a>
 Choose your version depending on your Operating System.
 Membership registration is required.
-```cudnn-9.0-windows10-x64-v7.1.zip```
+```
+Tested with cudnn-9.0-windows10-x64-v7.1.zip
+Unzip and 
 Copy the following files into the CUDA Toolkit directory.
 Copy <installpath>\cuda\bin\cudnn64_7.dll to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin.
 Copy <installpath>\cuda\ include\cudnn.h to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include.
 Copy <installpath>\cuda\lib\x64\cudnn.lib to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64.
+```
 
 ### Step 5: Create an Anaconda environment with Python=3.6.5
 Open Anaconda Prompt to type the following command(s)
